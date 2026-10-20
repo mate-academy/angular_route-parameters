@@ -8,15 +8,18 @@ Rozbuduj widok misji tak, aby użytkownik mógł przejść z listy do szczegół
 
 Każda misja powinna posiadać własny adres wykorzystujący jej `id`, a widok szczegółów powinien pobierać i wyświetlać dane misji wskazanej w adresie.
 
-- Utwórz komponent `MissionDetails` przeznaczony do wyświetlania pojedynczej misji.
-- Dodaj ścieżkę `missions/:id` prowadzącą do nowego komponentu.
+- Wykorzystaj przygotowany komponent `MissionDetails`, przeznaczony do wyświetlania pojedynczej misji.
+- Dodaj ścieżkę `missions/:id` prowadzącą do komponentu `MissionDetails`.
 - Dodaj do elementów listy misji dynamiczny `routerLink`, wykorzystujący `id` konkretnej misji.
 - Skonfiguruj Router tak, aby parametr `id` mógł zostać przekazany bezpośrednio do inputu komponentu.
 - Dodaj w `MissionDetails` wymagany input `id`.
-- Wykorzystaj istniejącą metodę `MissionsService` do pobrania misji wskazanej przez `id`.
-- Wyświetl dane pobranej misji w `MissionDetails`.
+- Dodaj do `MissionsService` metodę `getMission()`, która przyjmie sygnał z `id` misji i zwróci `httpResource` z jej danymi. Wykorzystaj ją w `MissionDetails` do pobrania misji wskazanej przez `id`.
+- Wyświetl dane pobranej misji w `MissionDetails`, odkomentowując przygotowany szablon w `mission-details.html`.
 - Dodaj stan ładowania widoczny podczas pobierania danych.
-Rezultat: kliknięcie misji na liście prowadzi do adresu `/missions/:id`, a widok `MissionDetails` wyświetla dane misji odpowiadającej identyfikatorowi znajdującemu się w adresie.
+
+Rezultat: kliknięcie misji na liście prowadzi do adresu `/missions/:id`, a widok `MissionDetails` wyświetla dane misji odpowiadającej identyfikatorowi znajdującemu się w adresie. Wszystkie testy projektu przechodzą poprawnie.
+
+💡 Po dodaniu wymaganego inputu `id` test w `mission-details.spec.ts` musi przekazać mu wartość, np. `fixture.componentRef.setInput('id', 'ASR482917')` przed pierwszym `fixture.detectChanges()`.
 
 ## Jak zacząć
 
